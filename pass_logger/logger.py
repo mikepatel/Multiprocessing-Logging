@@ -21,7 +21,10 @@ class Logger:
         console_handler.setLevel(logging.DEBUG)
 
         # create formatters
-        formatter = logging.Formatter(fmt=f'%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        # https://docs.python.org/3/library/logging.html#logrecord-attributes
+        prefix = f'%(asctime)s - %(name)s - %(levelname)s - '
+        base = f'Module: %(module)s | Function: %(funcName)s | Line number: %(lineno)d | Message: %(message)s'
+        formatter = logging.Formatter(fmt=prefix+base)
 
         # add formatters to handlers
         file_handler.setFormatter(formatter)
