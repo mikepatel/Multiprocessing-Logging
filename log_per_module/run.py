@@ -6,6 +6,7 @@
 # Imports
 from multiprocessing import Pool
 
+from logger import Logger
 from team import Team
 from player import Player
 
@@ -15,6 +16,7 @@ from player import Player
 def run(ticket):
     ticket = str(ticket)
     log_filename = ticket + ".txt"
+
     team = Team(ticket=ticket, log_filename=log_filename)
     player = Player(ticket=ticket, log_filename=log_filename)
 
